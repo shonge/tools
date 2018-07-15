@@ -1,0 +1,8 @@
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/ingress-gateway:v1.4.9.6          bd2d15842db4
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/apigateway:v1.4.9.1               5724c4595567
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/tosca-translator:v1.4.9.1                   ebebb41beeeb 
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/resource-manager:v1.4.9.1              87ef37eb26fd 
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/wisebuild-fronted:v1.4.9.1                 06bff34e766b 
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/ingress-agent:v1.4.9.1                      50fdd3e36ba6 
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/ingress-gateway:stable                     be80e1fb43b4 
+registry.cn-hangzhou.aliyuncs.com/wise2c-prd/build-worker:v1.4.9.1                        3461b8e27a9a 

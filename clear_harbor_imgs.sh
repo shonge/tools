@@ -1,5 +1,4 @@
 #!/bin/bash
-
 harbor_endpoint=localhost
 harbor_username=admin
 harbor_password=password

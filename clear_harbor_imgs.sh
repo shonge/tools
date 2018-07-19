@@ -1,9 +1,11 @@
 #!/bin/bash
+
 harbor_endpoint=localhost
 harbor_username=admin
 harbor_password=password
 harbor_schema=http
 KEEP_TAGS_NUM=3
+
 PROJECT=`curl -ksS -u ${harbor_username}:${harbor_password} -X GET -H "Content-Type: application/json" ${harbor_schema}://${harbor_endpoint}/api/projects`
 
 function read_project(){
@@ -26,4 +28,11 @@ for r in ${REPO_NAME};do
   else
     echo ${harbor_endpoint}/${r}/ ${DEL_TAGS}
       for t in ${DEL_TAGS};do
-          echo ${harbor_endpoint}
+          echo ${harbor_endpoint}/${r}/${t}
+          curl -ksS -u ${harbor_username}:${harbor_password} -X DELETE -w %{http_code}"\n" -H "Content-Type: application/json" ${harbor_schema}://${harbor_endpoint}/api/repositories/${r}/tags/${t}
+      done
+  fi
+done
+}
+
+read_project

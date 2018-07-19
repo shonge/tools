@@ -4,7 +4,7 @@ harbor_endpoint=localhost
 harbor_username=admin
 harbor_password=password
 harbor_schema=http
-KEEP_TAGs_NUM=3
+KEEP_TAGS_NUM=3
 
 PROJECT=`curl -ksS -u ${harbor_username}:${harbor_password} -X GET -H "Content-Type: application/json" ${harbor_schema}://${harbor_endpoint}/api/projects`
 
@@ -21,10 +21,10 @@ done < projects.list
 function del_tags(){
 for r in ${REPO_NAME};do
   TAGS=`curl -ksS -u ${harbor_username}:${harbor_password} -X GET -H "Content-Type: application/json" ${harbor_schema}://${harbor_endpoint}/api/repositories/${r}/tags`
-  DEL_TAGS=`echo ${TAGS} | jq .[].name -r | sort -rn| awk 'NR>'${KEEP_TAGs_NUM}' {print}'`
+  DEL_TAGS=`echo ${TAGS} | jq .[].name -r | sort -rn| awk 'NR>'${KEEP_TAGS_NUM}' {print}'`
   if [ -z "${DEL_TAGS}" ]
   then
-    echo "${harbor_endpoint}/${r}  tags are less than ${KEEP_TAGs_NUM} , nothing to clear."
+    echo "${harbor_endpoint}/${r}  tags are less than ${KEEP_TAGS_NUM} , nothing to clear."
   else
     echo ${harbor_endpoint}/${r}/ ${DEL_TAGS}
       for t in ${DEL_TAGS};do
